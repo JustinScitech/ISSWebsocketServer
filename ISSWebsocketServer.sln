@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISSWebsocketServer", "ISSWebsocketServer\ISSWebsocketServer.csproj", "{71FB7D74-8C4A-4F69-8CFB-0AD318F3D9CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSClient", "ISSClient\ISSClient.csproj", "{58620DB4-E73F-404C-8023-785EE983E60D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISSClient", "ISSClient\ISSClient.csproj", "{58620DB4-E73F-404C-8023-785EE983E60D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

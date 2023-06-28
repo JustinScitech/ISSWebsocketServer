@@ -98,9 +98,19 @@ namespace BCSServer
                 var latitude = issData["iss_position"]["latitude"].ToString();
                 var longitude = issData["iss_position"]["longitude"].ToString();
                 var timestamp = issData["timestamp"].ToString();
+                long unixTimestamp = long.Parse(timestamp);
+                DateTime utcDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                DateTime resultDate = utcDate.AddSeconds(unixTimestamp);
+                TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                resultDate = TimeZoneInfo.ConvertTimeFromUtc(resultDate, easternZone);
                 var numberPeople = humanData["number"].ToString();
+                var peopleInfo = "";
 
-                var message = $"Timestamp: {timestamp}, Latitude: {latitude}, Longitude: {longitude} \n And there are {numberPeople} people currently in space.";
+                foreach (var person in humanData["people"]) { 
+                     peopleInfo += person["name"] + " | ";
+                }
+
+                var message = $"Timestamp: {resultDate}, Latitude: {latitude}, Longitude: {longitude} \nAnd there are {numberPeople} people currently in space. \nThe people include: {peopleInfo}";
                 return message;
             }
             else
